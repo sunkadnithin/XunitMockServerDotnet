@@ -38,6 +38,7 @@ class Helper
 
         XmlNode node = xmlDoc.SelectSingleNode("//mfp:" + name, nsmgr);
         return node;
+        //example
         // XmlNode authTypeNode = xmlDoc.SelectSingleNode("//mfp:authType", nsmgr);
         // XmlNode loginNameNode = xmlDoc.SelectSingleNode("//mfp:property[@sys-name='LoginName']", nsmgr);
     }
@@ -61,28 +62,23 @@ class Helper
         // Get the last part after the last '/'
         string soapActionValue = url.Substring(url.LastIndexOf('/') + 1);
 
-        Console.WriteLine(soapActionValue); // Output: ActLDAPAuthResult
+        Console.WriteLine(soapActionValue);
         return soapActionValue;
     }
 
     public static bool saveXml(XmlDocument xmlDoc)
     {
-   
         try
         {
-            
-            // Save the XML to a file
+            // Save the Last XML Request
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "lastRequest.xml");
             xmlDoc.Save(filePath);
-
-            Console.WriteLine($"XML saved successfully to: {filePath}");
             return true;
         }
         catch (XmlException ex)
         {
             return false;
         }
-
     }
 }
 
