@@ -1,6 +1,7 @@
 
 
 
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Xml;
 
@@ -79,6 +80,26 @@ class Helper
         {
             return false;
         }
+    }
+
+    public static string GetLocalIPv4Address()
+    {
+        foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+        {
+            if (ni.OperationalStatus == OperationalStatus.Up && 
+                ni.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+            {
+                foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                {
+                    if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    {
+                        return ip.Address.ToString();
+                    }
+                }
+            }
+        }
+        Logger.Log("Not able get the Ip address, Running on localHost");
+        return "localhost"; // Return null if no IPv4 address is found
     }
 }
 

@@ -13,7 +13,7 @@ class Program
 {
     static void Main()
     {
-        string ip = "192.168.81.65";
+        string ip = Helper.GetLocalIPv4Address();
         // ToDo -- Not working when 
         // Specify the IP address and port number to listen on
         IPAddress ipAddress = IPAddress.Parse(ip); // Change this to your desired IP address
