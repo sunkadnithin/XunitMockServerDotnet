@@ -1,0 +1,488 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Header>
+        <h:HeaderActHello xmlns:h="urn:schemas-sc-jp:mfp:osa-2-1" xmlns="urn:schemas-sc-jp:mfp:osa-2-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <sessionId>6738411851137132</sessionId>
+        </h:HeaderActHello>
+    </s:Header>
+    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ActHello product-family="154" product-version="0100Q100" operation-version="01.00.00" xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+            <device-info uuid="SN1921688165MNSHARP BP-70C45" machineid="" osaversion="6.0">
+                <serial-number>1921688165</serial-number>
+                <modelname>SHARP BP-70C45</modelname>
+                <location>Simulation</location>
+                <mac_address>00:00:00:00:00:00</mac_address>
+                <network_address>192.168.81.65</network_address>
+                <name>WS-VGA MX 60-P2 Series</name>
+            </device-info>
+            <acl>
+                <groupList>
+                    <group>admin</group>
+                    <group>system_admin</group>
+                    <group>user</group>
+                    <group>guest</group>
+                    <group>color_prohibited</group>
+                    <group>scanner_prohibited</group>
+                </groupList>
+                <custom>
+                    <mfpFeature sys-name="COMMON">
+                        <settingConstraints>
+                            <property sys-name="DuplexMode">
+                                <setting sys-name="simplex">false</setting>
+                                <setting sys-name="duplex">false</setting>
+                            </property>
+                            <property sys-name="Finishing">
+                                <setting sys-name="staple">false</setting>
+                                <setting sys-name="punch">false</setting>
+                                <setting sys-name="fold">false</setting>
+                                <setting sys-name="saddle_stitch">false</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="BillingCodeChange" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="PRINT">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="monochrome">false</setting>
+                                <setting sys-name="singlecolor">false</setting>
+                                <setting sys-name="dualcolor">false</setting>
+                                <setting sys-name="triplecolor">false</setting>
+                                <setting sys-name="fullcolor">false</setting>
+                            </property>
+                            <property sys-name="ProhibitTonerSave">
+                                <setting sys-name="none">false</setting>
+                                <setting sys-name="mode1">false</setting>
+                                <setting sys-name="mode2">false</setting>
+                                <setting sys-name="mode3">false</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="FtpPullPrint" allow="false" />
+                        <subFeature sys-name="UsbDirectPrint" allow="false" />
+                        <subFeature sys-name="SmbPullPrint" allow="false" />
+                        <subFeature sys-name="SendWhilePrint" allow="false" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="COPY">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="monochrome">false</setting>
+                                <setting sys-name="fullcolor">false</setting>
+                                <setting sys-name="singlecolor">false</setting>
+                                <setting sys-name="dualcolor">false</setting>
+                            </property>
+                            <property sys-name="ProhibitTonerSave">
+                                <setting sys-name="none">false</setting>
+                                <setting sys-name="mode1">false</setting>
+                                <setting sys-name="mode2">false</setting>
+                                <setting sys-name="mode3">false</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="SpecialModes" allow="false" />
+                        <subFeature sys-name="SendWhileCopy" allow="false" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="IMAGE_SEND">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="fullcolor">false</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="DirectAddressEntry">
+                            <details>
+                                <detail sys-name="email_send">false</detail>
+                                <detail sys-name="ifax_send">false</detail>
+                                <detail sys-name="fax_send">false</detail>
+                                <detail sys-name="network_folder">false</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="LocalAddressBook">
+                            <details>
+                                <detail sys-name="email_send">false</detail>
+                                <detail sys-name="ifax_send">false</detail>
+                                <detail sys-name="fax_send">false</detail>
+                                <detail sys-name="network_folder">false</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="GlobalAddressBook">
+                            <details>
+                                <detail sys-name="address_book_1">false</detail>
+                                <detail sys-name="address_book_2">false</detail>
+                                <detail sys-name="address_book_3">false</detail>
+                                <detail sys-name="address_book_4">false</detail>
+                                <detail sys-name="address_book_5">false</detail>
+                                <detail sys-name="address_book_6">false</detail>
+                                <detail sys-name="address_book_7">false</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="EMailSend" allow="false" />
+                        <subFeature sys-name="FaxSend" allow="false" />
+                        <subFeature sys-name="Fax2Send" allow="false" />
+                        <subFeature sys-name="Fax3Send" allow="false" />
+                        <subFeature sys-name="IFaxSend" allow="false" />
+                        <subFeature sys-name="FtpSend" allow="false" />
+                        <subFeature sys-name="NetworkFolder" allow="false" />
+                        <subFeature sys-name="PcFaxSend" allow="false" />
+                        <subFeature sys-name="PcIFaxSend" allow="false" />
+                        <subFeature sys-name="RemotePcScan" allow="false" />
+                        <subFeature sys-name="Usb" allow="false" />
+                        <subFeature sys-name="Desktop" allow="false" />
+                        <subFeature sys-name="SpecialModes" allow="false" />
+                        <subFeature sys-name="ProgramRegistration" allow="false" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="false" />
+                        <subFeature sys-name="AccessToFaxData" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="SCAN_TO_HDD">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="fullcolor">false</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="SpecialModes" allow="false" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="DOC_FILING_PRINT">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="monochrome">false</setting>
+                                <setting sys-name="fullcolor">false</setting>
+                                <setting sys-name="dualcolor">false</setting>
+                                <setting sys-name="singlecolor">false</setting>
+                            </property>
+                            <property sys-name="ProhibitTonerSave">
+                                <setting sys-name="none">false</setting>
+                                <setting sys-name="mode1">false</setting>
+                                <setting sys-name="mode2">false</setting>
+                                <setting sys-name="mode3">false</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="SpecialModes" allow="false" />
+                        <subFeature sys-name="Preview" allow="false" />
+                        <subFeature sys-name="DisplayLoginUserFilesOnly" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="SHARP_OSA">
+                        <subFeature sys-name="StandardApplication">
+                            <details>
+                                <detail sys-name="application_1">false</detail>
+                                <detail sys-name="application_2">false</detail>
+                                <detail sys-name="application_3">false</detail>
+                                <detail sys-name="application_4">false</detail>
+                                <detail sys-name="application_5">false</detail>
+                                <detail sys-name="application_6">false</detail>
+                                <detail sys-name="application_7">false</detail>
+                                <detail sys-name="application_8">false</detail>
+                                <detail sys-name="application_9">false</detail>
+                                <detail sys-name="application_10">false</detail>
+                                <detail sys-name="application_11">false</detail>
+                                <detail sys-name="application_12">false</detail>
+                                <detail sys-name="application_13">false</detail>
+                                <detail sys-name="application_14">false</detail>
+                                <detail sys-name="application_15">false</detail>
+                                <detail sys-name="application_16">false</detail>
+                                <detail sys-name="application_17">false</detail>
+                                <detail sys-name="application_18">false</detail>
+                                <detail sys-name="application_19">false</detail>
+                                <detail sys-name="application_20">false</detail>
+                                <detail sys-name="application_21">false</detail>
+                                <detail sys-name="application_22">false</detail>
+                                <detail sys-name="application_23">false</detail>
+                                <detail sys-name="application_24">false</detail>
+                                <detail sys-name="application_25">false</detail>
+                                <detail sys-name="application_26">false</detail>
+                                <detail sys-name="application_27">false</detail>
+                                <detail sys-name="application_28">false</detail>
+                                <detail sys-name="application_29">false</detail>
+                                <detail sys-name="application_30">false</detail>
+                                <detail sys-name="application_31">false</detail>
+                                <detail sys-name="application_32">false</detail>
+                                <detail sys-name="application_33">false</detail>
+                                <detail sys-name="application_34">false</detail>
+                                <detail sys-name="application_35">false</detail>
+                                <detail sys-name="application_36">false</detail>
+                                <detail sys-name="application_37">false</detail>
+                                <detail sys-name="application_38">false</detail>
+                                <detail sys-name="application_39">false</detail>
+                                <detail sys-name="application_40">false</detail>
+                                <detail sys-name="application_41">false</detail>
+                                <detail sys-name="application_42">false</detail>
+                                <detail sys-name="application_43">false</detail>
+                                <detail sys-name="application_44">false</detail>
+                                <detail sys-name="application_45">false</detail>
+                                <detail sys-name="application_46">false</detail>
+                                <detail sys-name="application_47">false</detail>
+                                <detail sys-name="application_48">false</detail>
+                                <detail sys-name="application_49">false</detail>
+                                <detail sys-name="application_50">false</detail>
+                                <detail sys-name="application_51">false</detail>
+                                <detail sys-name="application_52">false</detail>
+                                <detail sys-name="application_53">false</detail>
+                                <detail sys-name="application_54">false</detail>
+                                <detail sys-name="application_55">false</detail>
+                                <detail sys-name="application_56">false</detail>
+                                <detail sys-name="application_57">false</detail>
+                                <detail sys-name="application_58">false</detail>
+                                <detail sys-name="application_59">false</detail>
+                                <detail sys-name="application_60">false</detail>
+                                <detail sys-name="application_61">false</detail>
+                                <detail sys-name="application_62">false</detail>
+                                <detail sys-name="application_63">false</detail>
+                                <detail sys-name="application_64">false</detail>
+                            </details>
+                        </subFeature>
+                    </mfpFeature>
+                    <mfpFeature sys-name="SECURITY">
+                        <subFeature sys-name="HiddenPatternDirectEntry" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature sys-name="SETTINGS">
+                        <subFeature sys-name="SystemSettings">
+                            <details>
+                                <detail sys-name="total_count">false</detail>
+                                <detail sys-name="clock">false</detail>
+                                <detail sys-name="keyboard_select">false</detail>
+                                <detail sys-name="list_print_user">false</detail>
+                                <detail sys-name="bypass_tray_excluded">false</detail>
+                                <detail sys-name="bypass_tray">false</detail>
+                                <detail sys-name="address_control">false</detail>
+                                <detail sys-name="doc_filing_control">false</detail>
+                                <detail sys-name="user_control">false</detail>
+                                <detail sys-name="user_control_user">false</detail>
+                                <detail sys-name="energy_save">false</detail>
+                                <detail sys-name="operation_settings">false</detail>
+                                <detail sys-name="device_settings">false</detail>
+                                <detail sys-name="copy_settings">false</detail>
+                                <detail sys-name="network_settings">false</detail>
+                                <detail sys-name="printer_settings">false</detail>
+                                <detail sys-name="printer_settings_user">false</detail>
+                                <detail sys-name="imagesend_operation_settings">false</detail>
+                                <detail sys-name="imagesend_scanner_settings">false</detail>
+                                <detail sys-name="imagesend_fax_settings">false</detail>
+                                <detail sys-name="imagesend_ifax_settings">false</detail>
+                                <detail sys-name="doc_filing_settings">false</detail>
+                                <detail sys-name="list_print_admin">false</detail>
+                                <detail sys-name="security_settings">false</detail>
+                                <detail sys-name="product_key">false</detail>
+                                <detail sys-name="osa_settings">false</detail>
+                                <detail sys-name="home_screen_settings">false</detail>
+                                <detail sys-name="fax_data_receive">false</detail>
+                                <detail sys-name="metadata_settings">false</detail>
+                                <detail sys-name="system_control">false</detail>
+                                <detail sys-name="image_quality_adjustment">false</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="WebSettings">
+                            <details>
+                                <detail sys-name="display_device">false</detail>
+                                <detail sys-name="power_reset">false</detail>
+                                <detail sys-name="machine_id">false</detail>
+                                <detail sys-name="custom_links">false</detail>
+                                <detail sys-name="shortcut_page_settings">false</detail>
+                                <detail sys-name="inbound_routing_settings">false</detail>
+                                <detail sys-name="inbound_routing_settings_user">false</detail>
+                            </details>
+                        </subFeature>
+                    </mfpFeature>
+                </custom>
+            </acl>
+            <lcl>
+                <groupList>
+                    <group>no_limit</group>
+                </groupList>
+                <custom>
+                    <limits sys-name="COPY">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                            <limit sys-name="singlecolor">0</limit>
+                            <limit sys-name="dualcolor">0</limit>
+                            <limit sys-name="fullcolor">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="PRINT">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                            <limit sys-name="singlecolor">0</limit>
+                            <limit sys-name="dualcolor">0</limit>
+                            <limit sys-name="triplecolor">0</limit>
+                            <limit sys-name="fullcolor">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="LIST_PRINT">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                            <limit sys-name="fullcolor">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="FAX_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="FAX2_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="FAX3_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="I_FAX_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="SCANNER">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                            <limit sys-name="fullcolor">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="DOC_FILING_PRINT">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                            <limit sys-name="singlecolor">0</limit>
+                            <limit sys-name="dualcolor">0</limit>
+                            <limit sys-name="fullcolor">0</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="SCAN_TO_HDD">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">0</limit>
+                            <limit sys-name="fullcolor">0</limit>
+                        </property>
+                    </limits>
+                </custom>
+            </lcl>
+            <counters>
+                <counter sys-name="total_monochrome">0</counter>
+                <counter sys-name="total_fullcolor">0</counter>
+                <counter sys-name="total_triplecolor">0</counter>
+                <counter sys-name="total_dualcolor">0</counter>
+                <counter sys-name="total_singlecolor">0</counter>
+                <counter sys-name="print_monochrome">0</counter>
+                <counter sys-name="print_fullcolor">0</counter>
+                <counter sys-name="print_triplecolor">0</counter>
+                <counter sys-name="print_dualcolor">0</counter>
+                <counter sys-name="print_singlecolor">0</counter>
+                <counter sys-name="copy_monochrome">0</counter>
+                <counter sys-name="copy_fullcolor">0</counter>
+                <counter sys-name="copy_dualcolor">0</counter>
+                <counter sys-name="copy_singlecolor">0</counter>
+                <counter sys-name="scan_monochrome">0</counter>
+                <counter sys-name="scan_fullcolor">0</counter>
+                <counter sys-name="fax_print_monochrome">0</counter>
+                <counter sys-name="fax2_print_monochrome">0</counter>
+                <counter sys-name="fax3_print_monochrome">0</counter>
+                <counter sys-name="fax_send_monochrome">0</counter>
+                <counter sys-name="fax2_send_monochrome">0</counter>
+                <counter sys-name="fax3_send_monochrome">0</counter>
+                <counter sys-name="ifax_print_monochrome">0</counter>
+                <counter sys-name="ifax_send_monochrome">0</counter>
+                <counter sys-name="docfile_print_monochrome">0</counter>
+                <counter sys-name="docfile_print_fullcolor">0</counter>
+                <counter sys-name="docfile_print_dualcolor">0</counter>
+                <counter sys-name="docfile_print_singlecolor">0</counter>
+                <counter sys-name="scan2hdd_monochrome">0</counter>
+                <counter sys-name="scan2hdd_fullcolor">0</counter>
+                <counter sys-name="other_monochrome">0</counter>
+                <counter sys-name="other_fullcolor">0</counter>
+            </counters>
+            <operation>
+                <complex sys-name="EVENT" minOccurs="0" maxOccurs="1">
+                    <property sys-name="startedUrl" isType="string" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">8</hasConstraint>
+                            <hasConstraint name="maxLength">2048</hasConstraint>
+                        </appInfo>
+                    </property>
+                    <property sys-name="completedUrl" isType="string" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">8</hasConstraint>
+                            <hasConstraint name="maxLength">2048</hasConstraint>
+                        </appInfo>
+                    </property>
+                    <property sys-name="logoutUrl" isType="string" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">8</hasConstraint>
+                            <hasConstraint name="maxLength">2048</hasConstraint>
+                        </appInfo>
+                    </property>
+                </complex>
+                <complex sys-name="JOBRESULTS" minOccurs="0" maxOccurs="1">
+                    <property sys-name="reqType" isType="list" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">8</hasConstraint>
+                            <hasConstraint name="maxLength">2048</hasConstraint>
+                        </appInfo>
+                        <value>undelivered</value>
+                        <allowedValueList>
+                            <allowed>undelivered</allowed>
+                            <allowed>offset</allowed>
+                            <allowed>job_id</allowed>
+                        </allowedValueList>
+                    </property>
+                    <property sys-name="offset" isType="integer" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">1</hasConstraint>
+                            <hasConstraint name="maxLength">60000</hasConstraint>
+                        </appInfo>
+                        <value>1</value>
+                    </property>
+                    <property sys-name="jobId" isType="string" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">23</hasConstraint>
+                            <hasConstraint name="maxLength">23</hasConstraint>
+                        </appInfo>
+                        <value>1</value>
+                    </property>
+                    <property sys-name="numberOfJobs" isType="integer" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">1</hasConstraint>
+                            <hasConstraint name="maxLength">60000</hasConstraint>
+                        </appInfo>
+                        <value>1</value>
+                    </property>
+                    <property sys-name="direction" isType="list" minOccurs="0" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">1</hasConstraint>
+                            <hasConstraint name="maxLength">60000</hasConstraint>
+                        </appInfo>
+                        <value>old</value>
+                        <allowedValueList>
+                            <allowed>old</allowed>
+                            <allowed>new</allowed>
+                        </allowedValueList>
+                    </property>
+                    <property sys-name="url" isType="string" minOccurs="1" maxOccurs="1">
+                        <appInfo>
+                            <hasConstraint name="minLength">8</hasConstraint>
+                            <hasConstraint name="maxLength">2048</hasConstraint>
+                        </appInfo>
+                        <value>old</value>
+                    </property>
+                </complex>
+            </operation>
+            <extensions>
+                <authExtension>
+                    <dataType>offline_support</dataType>
+                </authExtension>
+                <authExtension>
+                    <dataType>card_hid</dataType>
+                </authExtension>
+                <authExtension>
+                    <dataType>billing_code</dataType>
+                    <metadata>
+                        <property sys-name="control">enable</property>
+                    </metadata>
+                </authExtension>
+                <authExtension>
+                    <dataType>ldap</dataType>
+                    <metadata>
+                        <property sys-name="lserver1">LDAPServer1</property>
+                        <property sys-name="lserver2">LDAPServer2</property>
+                        <property sys-name="lserver3">LDAPServer3</property>
+                        <property sys-name="lserver4">sample1</property>
+                    </metadata>
+                </authExtension>
+            </extensions>
+        </ActHello>
+    </s:Body>
+</s:Envelope>

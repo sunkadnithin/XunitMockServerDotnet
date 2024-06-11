@@ -7,27 +7,6 @@ namespace ExtendedApplications;
 
 public class ActLDAPAuthResultClass
 {
-    //     // public void main()
-    //     public async Task main(NetworkStream stream, XmlDocument xmlDoc, string SOAPAction)
-    //     {
-
-    //         switch(Helper.getSOAPActionVlaue(SOAPAction))
-    //         {
-    //             case "ActLDAPAuthResult":
-    //                 {
-
-    //                 }
-    //             default:
-    //         }
-    //         if (Helper.getSOAPActionVlaue(SOAPAction) == "ActLDAPAuthResult")
-    //         {
-
-    //         }
-
-
-    //     }
-
-
     public async Task ActLDAPAuthResult(NetworkStream stream, XmlDocument xmlDoc, string url)
     {
         // if (Helper.getSOAPActionVlaue(SOAPAction) == "ActLDAPAuthResult")
@@ -36,7 +15,7 @@ public class ActLDAPAuthResultClass
         string authResult = Helper.getXmlNodeValue(xmlDoc, "authResult");
         string authType = Helper.getXmlNodeValue(xmlDoc, "authType");
         string loginName = Helper.getXmlNodeValue(xmlDoc, "property[@sys-name='LoginName']");
-
+        Logger.Log($"ActLDAPAuthResult Input\n authResult : {authResult}\tauthType : {authType}\tloginName : {loginName}");
         string customHeaders = Constants.ALL_HEADERS_WITH_DEFAULT;
 
         // Send the response
