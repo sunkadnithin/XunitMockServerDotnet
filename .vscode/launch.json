@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C#: XunitMockServerDotnet",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/XunitMockServerDotnet.csproj",
+            "launchConfigurationId": "TargetFramework=;XunitMockServerDotnet"
+        }
+    ]
+}
