@@ -2,6 +2,7 @@
 
 
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Xml;
 
@@ -47,7 +48,8 @@ class Helper
     public static string getXmlNodeValue(XmlDocument xmlDoc, string name)
     {
         XmlNode node = Helper.getXmlNode(xmlDoc, name);
-        string value = string.Empty;
+        string value = null;
+        // string value = string.Empty;
         if (node != null)
         {
             value = node.InnerText;
@@ -86,7 +88,7 @@ class Helper
     {
         foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
         {
-            if (ni.OperationalStatus == OperationalStatus.Up && 
+            if (ni.OperationalStatus == OperationalStatus.Up &&
                 ni.NetworkInterfaceType != NetworkInterfaceType.Loopback)
             {
                 foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
@@ -100,6 +102,34 @@ class Helper
         }
         Logger.Log("Not able get the Ip address, Running on localHost");
         return "localhost"; // Return null if no IPv4 address is found
+    }
+
+    public static void Send500InternalServerErr(NetworkStream stream, string exMessage)
+    {
+        Console.WriteLine($"Exception caught ---- {exMessage}");
+        string soapResponse = $@"<soap:Envelope xmlns:soap=""http://schemas.xmlsoap.org/soap/envelope/"">
+                                        <soap:Body>
+                                            <soap:Fault>
+                                                <faultcode>{500}</faultcode>
+                                                <faultstring>{exMessage}</faultstring>
+                                            </soap:Fault>
+                                        </soap:Body>
+                                    </soap:Envelope>";
+
+        string responseHeaders = Constants.RESPONSE_HEADER_HTTP_500_INTERNAL_SERVER_ERR;
+        byte[] responseBytes = Encoding.UTF8.GetBytes(responseHeaders + soapResponse);
+        stream.Write(responseBytes, 0, responseBytes.Length);
+        Logger.LogResponse(responseHeaders, soapResponse);
+    }
+
+    public static async Task Send200_ReadXmlFromFileAsync(NetworkStream stream, string filePath)
+    {
+        string xmlFilePath = filePath;
+        string xmlContent = File.ReadAllText(xmlFilePath);
+        byte[] responseBytes = Encoding.UTF8.GetBytes(Constants.RESPONSE_HEADER_HTTP_200_OK + xmlContent);
+        await stream.WriteAsync(responseBytes, 0, responseBytes.Length);
+        Console.WriteLine("stream.Write ended");
+        Logger.LogResponse(Constants.RESPONSE_HEADER_HTTP_200_OK, xmlContent);
     }
 }
 

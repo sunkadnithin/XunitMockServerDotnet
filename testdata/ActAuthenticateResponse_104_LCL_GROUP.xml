@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ActAuthenticateResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+            <result xsi:type="xsd:boolean">true</result>
+            <userInfo>
+                <accountId>10</accountId>
+                <metadata>
+                    <property sys-name="LoginName">10</property>
+                    <property sys-name="DisplayName">noLimitGroup</property>
+                    <property sys-name="iccardId">10</property>
+                    <property sys-name="Password">10</property>
+                    <property sys-name="EMailAddress">user10@example.com</property>
+                </metadata>
+            </userInfo>
+            <acl xsi:type="ACL_TYPE">
+                <custom default="disabled">
+                    <mfpFeature allow="false" sys-name="COMMON">
+                        <settingConstraints>
+                            <property sys-name="DuplexMode">
+                                <setting sys-name="simplex">true</setting>
+                                <setting sys-name="duplex">true</setting>
+                            </property>
+                            <property sys-name="Finishing">
+                                <setting sys-name="staple">true</setting>
+                                <setting sys-name="punch">true</setting>
+                                <setting sys-name="fold">true</setting>
+                                <setting sys-name="saddle_stitch">true</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="BillingCodeChange" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="PRINT">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="monochrome">true</setting>
+                                <setting sys-name="singlecolor">true</setting>
+                                <setting sys-name="dualcolor">true</setting>
+                                <setting sys-name="triplecolor">true</setting>
+                                <setting sys-name="fullcolor">true</setting>
+                            </property>
+                            <property sys-name="ProhibitTonerSave">
+                                <setting sys-name="none">true</setting>
+                                <setting sys-name="mode1">true</setting>
+                                <setting sys-name="mode2">true</setting>
+                                <setting sys-name="mode3">true</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="FtpPullPrint" allow="true" />
+                        <subFeature sys-name="UsbDirectPrint" allow="true" />
+                        <subFeature sys-name="SmbPullPrint" allow="true" />
+                        <subFeature sys-name="SendWhilePrint" allow="true" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="true" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="COPY">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="monochrome">true</setting>
+                                <setting sys-name="fullcolor">true</setting>
+                                <setting sys-name="singlecolor">true</setting>
+                                <setting sys-name="dualcolor">true</setting>
+                            </property>
+                            <property sys-name="ProhibitTonerSave">
+                                <setting sys-name="none">true</setting>
+                                <setting sys-name="mode1">true</setting>
+                                <setting sys-name="mode2">true</setting>
+                                <setting sys-name="mode3">true</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="SpecialModes" allow="true" />
+                        <subFeature sys-name="SendWhileCopy" allow="true" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="true" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="IMAGE_SEND">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="fullcolor">true</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="DirectAddressEntry" allow="true">
+                            <details>
+                                <detail sys-name="email_send">true</detail>
+                                <detail sys-name="ifax_send">true</detail>
+                                <detail sys-name="fax_send">true</detail>
+                                <detail sys-name="network_folder">true</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="LocalAddressBook" allow="true">
+                            <details>
+                                <detail sys-name="email_send">true</detail>
+                                <detail sys-name="ifax_send">true</detail>
+                                <detail sys-name="fax_send">true</detail>
+                                <detail sys-name="network_folder">true</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="GlobalAddressBook" allow="true">
+                            <details>
+                                <detail sys-name="address_book_1">true</detail>
+                                <detail sys-name="address_book_2">true</detail>
+                                <detail sys-name="address_book_3">true</detail>
+                                <detail sys-name="address_book_4">true</detail>
+                                <detail sys-name="address_book_5">true</detail>
+                                <detail sys-name="address_book_6">true</detail>
+                                <detail sys-name="address_book_7">true</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="EMailSend" allow="true" />
+                        <subFeature sys-name="FaxSend" allow="true" />
+                        <subFeature sys-name="Fax2Send" allow="true" />
+                        <subFeature sys-name="Fax3Send" allow="true" />
+                        <subFeature sys-name="IFaxSend" allow="true" />
+                        <subFeature sys-name="FtpSend" allow="true" />
+                        <subFeature sys-name="NetworkFolder" allow="true" />
+                        <subFeature sys-name="PcFaxSend" allow="true" />
+                        <subFeature sys-name="PcIFaxSend" allow="true" />
+                        <subFeature sys-name="RemotePcScan" allow="true" />
+                        <subFeature sys-name="Usb" allow="true" />
+                        <subFeature sys-name="Desktop" allow="true" />
+                        <subFeature sys-name="SpecialModes" allow="true" />
+                        <subFeature sys-name="ProgramRegistration" allow="true" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="true" />
+                        <subFeature sys-name="AccessToFaxData" allow="false" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="SCAN_TO_HDD">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="fullcolor">true</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="SpecialModes" allow="true" />
+                        <subFeature sys-name="CreatePcBrowsePdf" allow="true" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="DOC_FILING_PRINT">
+                        <settingConstraints>
+                            <property sys-name="ColorMode">
+                                <setting sys-name="monochrome">true</setting>
+                                <setting sys-name="fullcolor">true</setting>
+                                <setting sys-name="dualcolor">true</setting>
+                                <setting sys-name="singlecolor">true</setting>
+                            </property>
+                            <property sys-name="ProhibitTonerSave">
+                                <setting sys-name="none">true</setting>
+                                <setting sys-name="mode1">true</setting>
+                                <setting sys-name="mode2">true</setting>
+                                <setting sys-name="mode3">true</setting>
+                            </property>
+                        </settingConstraints>
+                        <subFeature sys-name="SpecialModes" allow="true" />
+                        <subFeature sys-name="Preview" allow="true" />
+                        <subFeature sys-name="DisplayLoginUserFilesOnly" allow="true" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="SHARP_OSA">
+                        <subFeature sys-name="StandardApplication" allow="true">
+                            <details>
+                                <detail sys-name="application_1">true</detail>
+                                <detail sys-name="application_2">true</detail>
+                                <detail sys-name="application_3">true</detail>
+                                <detail sys-name="application_4">true</detail>
+                                <detail sys-name="application_5">true</detail>
+                                <detail sys-name="application_6">true</detail>
+                                <detail sys-name="application_7">true</detail>
+                                <detail sys-name="application_8">true</detail>
+                                <detail sys-name="application_9">true</detail>
+                                <detail sys-name="application_10">true</detail>
+                                <detail sys-name="application_11">true</detail>
+                                <detail sys-name="application_12">true</detail>
+                                <detail sys-name="application_13">true</detail>
+                                <detail sys-name="application_14">true</detail>
+                                <detail sys-name="application_15">true</detail>
+                                <detail sys-name="application_16">true</detail>
+                                <detail sys-name="application_17">true</detail>
+                                <detail sys-name="application_18">true</detail>
+                                <detail sys-name="application_19">true</detail>
+                                <detail sys-name="application_20">true</detail>
+                                <detail sys-name="application_21">true</detail>
+                                <detail sys-name="application_22">true</detail>
+                                <detail sys-name="application_23">true</detail>
+                                <detail sys-name="application_24">true</detail>
+                                <detail sys-name="application_25">true</detail>
+                                <detail sys-name="application_26">true</detail>
+                                <detail sys-name="application_27">true</detail>
+                                <detail sys-name="application_28">true</detail>
+                                <detail sys-name="application_29">true</detail>
+                                <detail sys-name="application_30">true</detail>
+                                <detail sys-name="application_31">true</detail>
+                                <detail sys-name="application_32">true</detail>
+                                <detail sys-name="application_33">true</detail>
+                                <detail sys-name="application_34">true</detail>
+                                <detail sys-name="application_35">true</detail>
+                                <detail sys-name="application_36">true</detail>
+                                <detail sys-name="application_37">true</detail>
+                                <detail sys-name="application_38">true</detail>
+                                <detail sys-name="application_39">true</detail>
+                                <detail sys-name="application_40">true</detail>
+                                <detail sys-name="application_41">true</detail>
+                                <detail sys-name="application_42">true</detail>
+                                <detail sys-name="application_43">true</detail>
+                                <detail sys-name="application_44">true</detail>
+                                <detail sys-name="application_45">true</detail>
+                                <detail sys-name="application_46">true</detail>
+                                <detail sys-name="application_47">true</detail>
+                                <detail sys-name="application_48">true</detail>
+                                <detail sys-name="application_49">true</detail>
+                                <detail sys-name="application_50">true</detail>
+                                <detail sys-name="application_51">true</detail>
+                                <detail sys-name="application_52">true</detail>
+                                <detail sys-name="application_53">true</detail>
+                                <detail sys-name="application_54">true</detail>
+                                <detail sys-name="application_55">true</detail>
+                                <detail sys-name="application_56">true</detail>
+                                <detail sys-name="application_57">true</detail>
+                                <detail sys-name="application_58">true</detail>
+                                <detail sys-name="application_59">true</detail>
+                                <detail sys-name="application_60">true</detail>
+                                <detail sys-name="application_61">true</detail>
+                                <detail sys-name="application_62">true</detail>
+                                <detail sys-name="application_63">true</detail>
+                                <detail sys-name="application_64">true</detail>
+                            </details>
+                        </subFeature>
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="SECURITY">
+                        <subFeature sys-name="HiddenPatternDirectEntry" allow="true" />
+                    </mfpFeature>
+                    <mfpFeature allow="false" sys-name="SETTINGS">
+                        <subFeature sys-name="SystemSettings" allow="true">
+                            <details>
+                                <detail sys-name="total_count">true</detail>
+                                <detail sys-name="clock">true</detail>
+                                <detail sys-name="keyboard_select">true</detail>
+                                <detail sys-name="list_print_user">true</detail>
+                                <detail sys-name="bypass_tray_excluded">true</detail>
+                                <detail sys-name="bypass_tray">true</detail>
+                                <detail sys-name="address_control">true</detail>
+                                <detail sys-name="doc_filing_control">true</detail>
+                                <detail sys-name="user_control">true</detail>
+                                <detail sys-name="user_control_user">false</detail>
+                                <detail sys-name="energy_save">true</detail>
+                                <detail sys-name="operation_settings">true</detail>
+                                <detail sys-name="device_settings">true</detail>
+                                <detail sys-name="copy_settings">true</detail>
+                                <detail sys-name="network_settings">true</detail>
+                                <detail sys-name="printer_settings">true</detail>
+                                <detail sys-name="printer_settings_user">false</detail>
+                                <detail sys-name="imagesend_operation_settings">true</detail>
+                                <detail sys-name="imagesend_scanner_settings">true</detail>
+                                <detail sys-name="imagesend_fax_settings">true</detail>
+                                <detail sys-name="imagesend_ifax_settings">true</detail>
+                                <detail sys-name="doc_filing_settings">true</detail>
+                                <detail sys-name="list_print_admin">true</detail>
+                                <detail sys-name="security_settings">true</detail>
+                                <detail sys-name="product_key">true</detail>
+                                <detail sys-name="osa_settings">true</detail>
+                                <detail sys-name="home_screen_settings">false</detail>
+                                <detail sys-name="fax_data_receive">true</detail>
+                                <detail sys-name="metadata_settings">false</detail>
+                                <detail sys-name="system_control">false</detail>
+                                <detail sys-name="image_quality_adjustment">false</detail>
+                            </details>
+                        </subFeature>
+                        <subFeature sys-name="WebSettings" allow="true">
+                            <details>
+                                <detail sys-name="display_device">true</detail>
+                                <detail sys-name="power_reset">true</detail>
+                                <detail sys-name="machine_id">true</detail>
+                                <detail sys-name="custom_links">true</detail>
+                                <detail sys-name="shortcut_page_settings">false</detail>
+                                <detail sys-name="inbound_routing_settings">false</detail>
+                                <detail sys-name="inbound_routing_settings_user">false</detail>
+                            </details>
+                        </subFeature>
+                    </mfpFeature>
+                </custom>
+            </acl>
+            <lcl xsi:type="LCL_GROUP_SET_TYPE">
+                <group>no_limit</group>
+                <actionForSuspendedJob>stop</actionForSuspendedJob>
+            </lcl>
+        </ActAuthenticateResponse>
+    </soap:Body>
+</soap:Envelope>

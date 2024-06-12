@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ActLDAPAuthResultResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+            <result xsi:type="xsd:boolean">true</result>
+            <screen xsi:type="SCREEN_APP_TYPE">
+                <app-address>http://172.29.242.170/eOSAEAChecker/ShowLCLInfo.aspx</app-address>
+            </screen>
+        </ActLDAPAuthResultResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -13,7 +13,7 @@
                     <property sys-name="EMailAddress">user10@example.com</property>
                 </metadata>
             </userInfo>
-            <acl xsi:type="ACL_CUSTOM_SET_TYPE">
+            <acl xsi:type="ACL_TYPE">
                 <custom default="disabled">
                     <mfpFeature allow="false" sys-name="COMMON">
                         <settingConstraints>
@@ -276,8 +276,7 @@
                 <group>no_limit</group>
                 <actionForSuspendedJob>stop</actionForSuspendedJob>
             </lcl>
-            <screen xsi:type="SCREEN_APP_TYPE">
-                <app-address>http://172.29.241.242/exOsaEaChecker/ShowLCLInfo.aspx</app-address>
+            <screen xsi:type="SCREEN_TYPE">
             </screen>
         </ActAuthenticateResponse>
     </soap:Body>

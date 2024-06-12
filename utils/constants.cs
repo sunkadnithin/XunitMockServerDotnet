@@ -3,6 +3,7 @@ namespace Utility;
 public class Constants
 {
 
+    public const string TESTDATA_PATH = "./testdata";
     // Update Might be required for other API's and differnet machines (PATH)
     public static string ALL_HEADERS_WITH_DEFAULT = "HTTP_CACHE_CONTROL: no-cache, max-age=0\r\n" +
                        "HTTP_CONTENT_LENGTH: 823\r\n" +
@@ -37,4 +38,8 @@ public class Constants
 
     public static string RESPONSE_HEADER_HTTP_200_OK = "HTTP/1.1 200 OK\r\n" +
                                      "Content-Type: text/xml; charset=utf-8\r\n\r\n";
+
+    public static string RESPONSE_HEADER_HTTP_500_INTERNAL_SERVER_ERR = "HTTP/1.1 500 Internal Server Error\r\n" +
+                        "Content-Type: text/xml; charset=utf-8\r\n\r\n";                
+
 }
