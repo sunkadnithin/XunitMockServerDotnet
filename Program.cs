@@ -13,10 +13,9 @@ class Program
 {
     static void Main()
     {
-        string ip = Helper.GetLocalIPv4Address();
-        // ToDo -- Not working when 
-        // Specify the IP address and port number to listen on
-        IPAddress ipAddress = IPAddress.Parse(ip); // Change this to your desired IP address
+        // string ip = Helper.GetLocalIPv4Address(); // to get the Actual IP Address
+        string ip = "127.0.0.1"; // To Run in localhost
+        IPAddress ipAddress = IPAddress.Parse(ip);
         int port = 3000; // Change this to your desired port number
 
         // Create a TCP listener
@@ -98,14 +97,13 @@ class Program
             if (Helper.getSOAPActionVlaue(SOAPAction) == "ActLDAPAuthResult")
             {
                 ActLDAPAuthResultClass actLDAP = new ActLDAPAuthResultClass();
-                // Handle request for endpoint exOSAEAChecker
                 actLDAP.ActLDAPAuthResult(stream, xmlDoc, url);
             }
-            // Check if the request is for endpoint 2
-            else if (url.StartsWith("/endpoint2"))
+            // Check if the request is for ActADAuthResult
+            else if (Helper.getSOAPActionVlaue(SOAPAction) == "ActADAuthResult")
             {
-                // Handle request for endpoint 2
-                HandleEndpoint2Request(stream);
+                ActADAuthResultClass actLDAP = new();
+                await actLDAP.ActADAuthResult(stream, xmlDoc, url);
             }
             else
             {

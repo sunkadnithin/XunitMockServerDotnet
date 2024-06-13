@@ -4,6 +4,7 @@ public class Constants
 {
 
     public const string TESTDATA_PATH = "./testdata";
+    public const string TESTDATA_AD_AUTH_RESPONSE_PATH = TESTDATA_PATH + "/ADAuthenticateResponse";
     // Update Might be required for other API's and differnet machines (PATH)
     public static string ALL_HEADERS_WITH_DEFAULT = "HTTP_CACHE_CONTROL: no-cache, max-age=0\r\n" +
                        "HTTP_CONTENT_LENGTH: 823\r\n" +
