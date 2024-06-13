@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <soap:Body>
-        <ActAuthenticateResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+        <ActLDAPAuthResultResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
             <result xsi:type="xsd:boolean">true</result>
             <userInfo>
                 <accountId>10</accountId>
@@ -13,7 +13,7 @@
                     <property sys-name="EMailAddress">user10@example.com</property>
                 </metadata>
             </userInfo>
-            <acl xsi:type="ACL_TYPE">
+            <acl xsi:type="ACL_CUSTOM_SET_TYPE">
                 <custom default="disabled">
                     <mfpFeature allow="false" sys-name="COMMON">
                         <settingConstraints>
@@ -279,6 +279,6 @@
             <screen xsi:type="SCREEN_APP_TYPE">
                 <app-address>http://172.29.241.242/exOsaEaChecker/ShowLCLInfo.aspx</app-address>
             </screen>
-        </ActAuthenticateResponse>
+        </ActLDAPAuthResultResponse>
     </soap:Body>
 </soap:Envelope>
