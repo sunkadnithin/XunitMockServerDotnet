@@ -163,7 +163,7 @@ public class ActLDAPAuthResultClass
                 break ;
                 
             case "100":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH + "/ActAuthenticateResponse_100_ACL_TYPE_CUSTOM.xml");
+                await Helper.Send200_XmlNode(stream, Constants.TESTDATA_PATH + "/ActAuthenticateResponse_100_ACL_TYPE_CUSTOM.xml");
                 break ;
             case "101":
                 await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH + "/ActAuthenticateResponse_101_ACL_GROUP.xml");
@@ -200,4 +200,6 @@ public class ActLDAPAuthResultClass
                 break ;
         }
     }
+
+
 }
