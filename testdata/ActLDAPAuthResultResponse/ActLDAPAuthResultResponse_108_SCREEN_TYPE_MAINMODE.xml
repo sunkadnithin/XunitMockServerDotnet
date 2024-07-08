@@ -13,19 +13,16 @@
                     <property sys-name="EMailAddress">user10@example.com</property>
                 </metadata>
             </userInfo>
-            <acl xsi:type="ACL_TYPE">
-                <group>no_limit</group>
-                <
+            <acl>
+            <custom default="disabled"></custom>
             </acl>
             <lcl xsi:type="LCL_GROUP_SET_TYPE">
                 <group>no_limit</group>
                 <actionForSuspendedJob>stop</actionForSuspendedJob>
             </lcl>
-            <screen xsi:type="SCREEN_MFP_TYPE">
-            <main-mode>IMAGE_SEND<main-mode>
-            <sub-mode>SCAN<sub-mode>
-                <app-address>http://172.29.241.242/exOsaEaChecker/ShowLCLInfo.aspx</app-address>
-            </screen>
+         <screen>
+            <main-mode>HOME</main-mode>
+         </screen>
         </ActLDAPAuthResultResponse>
     </soap:Body>
 </soap:Envelope>

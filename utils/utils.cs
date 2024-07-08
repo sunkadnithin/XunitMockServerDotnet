@@ -10,7 +10,6 @@ namespace Utility;
 
 class Helper
 {
-
     public static int GetContentLength(string headers)
     {
         string[] data = headers.Split(" ");
