@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ActLDAPAuthResultResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+            <result xsi:type="xsd:boolean">true</result>
+            <userInfo>
+                <accountId>10</accountId>
+                <metadata>
+                    <property sys-name="LoginName">10</property>
+                    <property sys-name="DisplayName">noLimitGroup</property>
+                    <property sys-name="iccardId">10</property>
+                    <property sys-name="Password">10</property>
+                    <property sys-name="EMailAddress">user10@example.com</property>
+                </metadata>
+            </userInfo>
+            <acl>
+            <custom default="disabled"></custom>
+            </acl>
+            <lcl xsi:type="LCL_GROUP_SET_TYPE">
+                <group>no_limit</group>
+                <actionForSuspendedJob>stop</actionForSuspendedJob>
+            </lcl>
+         <screen>
+            <main-mode>HOME</main-mode>
+         </screen>
+        </ActLDAPAuthResultResponse>
+    </soap:Body>
+</soap:Envelope>

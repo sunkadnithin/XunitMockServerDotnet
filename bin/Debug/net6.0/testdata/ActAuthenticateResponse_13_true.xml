@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ActLDAPAuthResultResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+            <result xsi:type="xsd:boolean">true</result>
+            <userInfo>
+                <accountId>13</accountId>
+                <metadata>
+                    <property sys-name="LoginName">13</property>
+                    <property sys-name="DisplayName">userGr</property>
+                    <property sys-name="iccardId">13</property>
+                    <property sys-name="Password">13</property>
+                    <property sys-name="EMailAddress">user13@example.com</property>
+                </metadata>
+            </userInfo>
+            <acl xsi:type="ACL_GROUP_SET_TYPE">
+                <group>user</group>
+            </acl>
+            <lcl xsi:type="LCL_CUSTOM_SET_TYPE">
+                <custom default="no_limit">
+                    <limits sys-name="COPY">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9996</limit>
+                            <limit sys-name="singlecolor">9998</limit>
+                            <limit sys-name="dualcolor">9998</limit>
+                            <limit sys-name="fullcolor">9997</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="PRINT">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9993</limit>
+                            <limit sys-name="singlecolor">10000</limit>
+                            <limit sys-name="dualcolor">10000</limit>
+                            <limit sys-name="triplecolor">10000</limit>
+                            <limit sys-name="fullcolor">10000</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="LIST_PRINT">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">10000</limit>
+                            <limit sys-name="fullcolor">10000</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="FAX_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9999</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="FAX2_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">10000</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="FAX3_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">10000</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="I_FAX_SEND">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9999</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="SCANNER">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9991</limit>
+                            <limit sys-name="fullcolor">9999</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="DOC_FILING_PRINT">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9996</limit>
+                            <limit sys-name="singlecolor">9998</limit>
+                            <limit sys-name="dualcolor">9998</limit>
+                            <limit sys-name="fullcolor">9998</limit>
+                        </property>
+                    </limits>
+                    <limits sys-name="SCAN_TO_HDD">
+                        <property sys-name="ColorMode">
+                            <limit sys-name="monochrome">9997</limit>
+                            <limit sys-name="fullcolor">9998</limit>
+                        </property>
+                    </limits>
+                </custom>
+                <actionForSuspendedJob>stop</actionForSuspendedJob>
+            </lcl>
+            <screen xsi:type="SCREEN_APP_TYPE">
+                <app-address>http://172.29.241.242/exOsaEaChecker/ShowLCLInfo.aspx</app-address>
+            </screen>
+        </ActLDAPAuthResultResponse>
+    </soap:Body>
+</soap:Envelope>

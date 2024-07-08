@@ -12,4 +12,4 @@ Currently works on POST /exOSAEAChecker/Mfpsink.asmx with SOAP Action ActLDAPAut
 **Debuging**
 1. After Build, press f5 or select debugging manully from the IDE (VS Code).
 2. You can Check the ./logs/logs.log for the LOGS
-3. Failed LOGS are printed in the Terminal/Console
+3. Failed LOGS are printed in the Terminal/Console 
