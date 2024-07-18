@@ -1,15 +1,24 @@
 # XunitMockServerDotnet
 
-**Steps**
+## Getting Started
 
-1. In *program.cs* change the IP address to the your machine IP
-2. run dotnet build
-3. run dotnet run
+### Steps
 
-Currently works on POST /exOSAEAChecker/Mfpsink.asmx with SOAP Action ActLDAPAuthResult() Method
+1. **Open the terminal with the current folder path.**
+2. **Run the following commands:**
+    ```bash
+    dotnet build
+    dotnet run
+    ```
+    This will run the mock server on `http://127.0.0.1:3000`.
 
+### Logs
 
-**Debuging**
-1. After Build, press f5 or select debugging manully from the IDE (VS Code).
-2. You can Check the ./logs/logs.log for the LOGS
-3. Failed LOGS are printed in the Terminal/Console 
+- All the requests, responses, and messages are available in the logs at `./logs/logs.log`.
+
+### API Implemented
+
+- `ActLDAPAuthResult()`
+- `ActADAuthResult()` 
+  - **ToDo:** Add the remaining XML
+

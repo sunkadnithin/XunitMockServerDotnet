@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ActADAuthResultResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+         <result>true</result>
+         <userInfo cache="true">
+            <accountId>100</accountId>
+            <metadata>
+               <property sys-name="DisplayName">okamura.akihiro@sharp.co.jp</property>
+               <property sys-name="EMailAddress">okamura.akihiro@sharp.co.jp</property>
+               <property sys-name="LoginName">okamura.akihiro@sharp.co.jp</property>
+            </metadata>
+         </userInfo>
+         <acl>
+            <groupList>
+               <group>user</group>
+            </groupList>
+         </acl>
+         <lcl>
+            <custom default="no_limit" />
+         </lcl>
+         <screen>
+            <main-mode>SYSTEM_DEFAULT</main-mode>
+         </screen>
+      </ActADAuthResultResponse>
+   </soap:Body>
+</soap:Envelope>

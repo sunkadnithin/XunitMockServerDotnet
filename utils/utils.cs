@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Xml;
 
-namespace Utility;
+namespace MockServer.Utils;
 
 class Helper
 {
@@ -39,7 +39,8 @@ class Helper
 
         XmlNode node = xmlDoc.SelectSingleNode("//mfp:" + name, nsmgr);
         return node;
-        //example
+
+        //use case example
         // XmlNode authTypeNode = xmlDoc.SelectSingleNode("//mfp:authType", nsmgr);
         // XmlNode loginNameNode = xmlDoc.SelectSingleNode("//mfp:property[@sys-name='LoginName']", nsmgr);
     }
@@ -48,7 +49,6 @@ class Helper
     {
         XmlNode node = Helper.getXmlNode(xmlDoc, name);
         string value = null;
-        // string value = string.Empty;
         if (node != null)
         {
             value = node.InnerText;
@@ -99,8 +99,8 @@ class Helper
                 }
             }
         }
-        Logger.Log("Not able get the Ip address, Running on localHost");
-        return "localhost"; // Return null if no IPv4 address is found
+        Logger.Log($"Not able get the Ip address, using the localHost : {Constants.LOCAL_HOST}");
+        return Constants.LOCAL_HOST; // Return null if no IPv4 address is found
     }
 
     public static void Send500InternalServerErr(NetworkStream stream, string exMessage)

@@ -3,16 +3,18 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Xml;
-using ExtendedApplications;
-using Utility;
+using MockServer;
+using MockServer.Utils;
+
 class Program
 {
     static void Main()
     {
-        // string ip = Helper.GetLocalIPv4Address(); // to get the Actual IP Address
-        string ip = "127.0.0.1"; // To Run in localhost
+        string ip = Helper.GetLocalIPv4Address(); // to get the Actual IP Address
+        // string ip = Constants.LOCAL_HOST;            // To Run in localhost
         IPAddress ipAddress = IPAddress.Parse(ip);
-        int port = 3000; // Change this to your desired port number        
+        int port = Constants.LOCAL_PORT;
+
         // Create a TCP listener
         TcpListener listener = new TcpListener(ipAddress, port);
         try
@@ -55,8 +57,8 @@ class Program
             string contentType = await reader.ReadLineAsync();
             string contentLength = await reader.ReadLineAsync();
             string extraLine = await reader.ReadLineAsync();
-            int contentLengthInt = Utility.Helper.GetContentLength(contentLength);
-            string xmlData = await Utility.Helper.ReadByteDataAsync(reader, 0, contentLengthInt);
+            int contentLengthInt = MockServer.Utils.Helper.GetContentLength(contentLength);
+            string xmlData = await MockServer.Utils.Helper.ReadByteDataAsync(reader, 0, contentLengthInt);
             Console.WriteLine($"Received request: from {host} {requestHeaders} -- {SOAPAction}");
             Logger.Log($"{requestHeaders}\n{host}\n{cacheControl}\n{SOAPAction}\n{acceptEncoding}\n{contentType}\n {contentLength}\n XML Data: \n {xmlData}");
 
@@ -82,14 +84,14 @@ class Program
                     }
                 case "ActADAuthResult":
                     {
-                        ActADAuthResultClass actLDAP = new();
-                        await actLDAP.ActADAuthResult(stream, xmlDoc, url);
+                        ActADAuthResultClass actAD = new();
+                        await actAD.ActADAuthResult(stream, xmlDoc, url);
                         break;
                     }
                 case "ActAuthenticate":
                     {
-                        ActAuthenticateResponseClass actAuthenticate = new ActAuthenticateResponseClass();
-                        actAuthenticate.ActAuthenticateResponse(stream, xmlDoc, url);
+                        ActAuthResultClass actAuth = new();
+                        await actAuth.ActAuthResult(stream, xmlDoc, url);
                         break;
                     }
                 default:

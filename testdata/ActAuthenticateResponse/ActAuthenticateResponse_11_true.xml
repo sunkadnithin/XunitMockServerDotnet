@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ActAuthenticateResponse xmlns="urn:schemas-sc-jp:mfp:osa-2-1">
+            <result xsi:type="xsd:boolean">true</result>
+            <userInfo>
+                <accountId>11</accountId>
+                <metadata>
+                    <property sys-name="LoginName">11</property>
+                    <property sys-name="DisplayName">AdminGr_NoLimit</property>
+                    <property sys-name="iccardId">11</property>
+                    <property sys-name="Password">11</property>
+                    <property sys-name="EMailAddress">user11@example.com</property>
+                </metadata>
+            </userInfo>
+            <acl xsi:type="ACL_GROUP_SET_TYPE">
+                <group>admin</group>
+            </acl>
+            <lcl xsi:type="LCL_GROUP_SET_TYPE">
+                <group>no_limit</group>
+                <actionForSuspendedJob>stop</actionForSuspendedJob>
+            </lcl>
+            <screen xsi:type="SCREEN_APP_TYPE">
+                <app-address>http://172.29.241.242/exOsaEaChecker/ShowLCLInfo.aspx</app-address>
+            </screen>
+        </ActAuthenticateResponse>
+    </soap:Body>
+</soap:Envelope>

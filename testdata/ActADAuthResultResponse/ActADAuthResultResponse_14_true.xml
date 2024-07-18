@@ -84,8 +84,8 @@
                 </custom>
                 <actionForSuspendedJob>stop</actionForSuspendedJob>
             </lcl>
-            <screen xsi:type="SCREEN_APP_TYPE">
-                <app-address>http://172.29.241.242/exOsaEaChecker/ShowLCLInfo.aspx</app-address>
+            <screen xsi:type="SCREEN_TYPE">
+                <main-mode>HOME</main-mode>
             </screen>
         </ActADAuthResultResponse>
     </soap:Body>

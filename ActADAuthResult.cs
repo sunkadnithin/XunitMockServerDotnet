@@ -3,12 +3,13 @@ using System.Net.Sockets;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Xml;
-using Utility;
+using MockServer.Utils;
 
-namespace ExtendedApplications;
+namespace MockServer;
 
 public class ActADAuthResultClass
 {
+    string test_data_path = Constants.TESTDATA_PATH_ActADAuthResultResponse;
     public async Task ActADAuthResult(NetworkStream stream, XmlDocument xmlDoc, string url)
     {
         try
@@ -53,14 +54,14 @@ public class ActADAuthResultClass
                         }
                          else if (retResult == false)
                         {
-                            string xmlFilePath = Constants.TESTDATA_PATH_ActADAuthResultResponse + "ActADAuthResultResponse_default_false.xml";
+                            string xmlFilePath = test_data_path + "ActADAuthResultResponse_false.xml";
                             await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
                         }
                         else if (retResult == true)
                         {
                             try
                             {
-                                string xmlFilePath = Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_default_true.xml";
+                                string xmlFilePath = test_data_path + "/ActADAuthResultResponse_true.xml";
                                 await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
                             }
 
@@ -113,12 +114,12 @@ public class ActADAuthResultClass
 
                         if (retResult)
                         {
-                            await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + $"/ActADAuthResultResponse{loginName}_true");
+                            await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActADAuthResultResponse_{loginName}_true.xml");
 
                         }
                         else
                         {
-                            await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_default_false_default_false.xml");
+                            await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_false_default_false.xml");
                         }
                     }
                     break;
@@ -149,56 +150,56 @@ public class ActADAuthResultClass
         switch (loginName)
         {
             case "11":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + $"/ActADAuthResultResponse_{loginName}_true.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActADAuthResultResponse_{loginName}_true.xml");
                 break ;
             
             case "12":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + $"/ActADAuthResultResponse_{loginName}_true.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActADAuthResultResponse_{loginName}_true.xml");
                 break ;
             
             case "13":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + $"/ActADAuthResultResponse_{loginName}_true.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActADAuthResultResponse_{loginName}_true.xml");
                 break ;
             
             case "14":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + $"/ActADAuthResultResponse_{loginName}_true.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActADAuthResultResponse_{loginName}_true.xml");
                 break ;
                 
             case "100":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_100_ACL_TYPE_CUSTOM.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_100_ACL_TYPE_CUSTOM.xml");
                 break ;
             case "101":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_101_ACL_GROUP.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_101_ACL_GROUP.xml");
                 break ;
             case "102":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_103_LCL_CUSTOM.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_103_LCL_CUSTOM.xml");
                 break ;
             case "103":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_103_LCL_CUSTOM.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_103_LCL_CUSTOM.xml");
                 break ;
             
             case "104":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_104_LCL_GROUP.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_104_LCL_GROUP.xml");
                 break ;
             
             case "105":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_105_SCREEN_APP_TYPE.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_105_SCREEN_APP_TYPE.xml");
                 break ;
             
             case "106":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_106_SCREEN_TYPE.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_106_SCREEN_TYPE.xml");
                 break ;
             
             case "107":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_107_SCREEN_TYPE_NULL_APP_ADDRESS.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_107_SCREEN_TYPE_NULL_APP_ADDRESS.xml");
                 break ;
             
             case "108":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_108_SCREEN_TYPE_MAINMODE.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_108_SCREEN_TYPE_MAINMODE.xml");
                 break ;
             
             case "1000":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, Constants.TESTDATA_PATH_ActADAuthResultResponse + "/ActADAuthResultResponse_1000_USERINFO_ACL_LCL_NULL.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActADAuthResultResponse_1000_USERINFO_ACL_LCL_NULL.xml");
                 break ;
         }
     }

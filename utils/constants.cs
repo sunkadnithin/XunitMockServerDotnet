@@ -1,11 +1,14 @@
-namespace Utility;
+namespace MockServer.Utils;
 
 public class Constants
 {
+    public static string LOCAL_HOST = "127.0.0.1";
+    public static int LOCAL_PORT = 3000;
 
     public const string TESTDATA_PATH = "./testdata";
     public const string TESTDATA_PATH_ActLDAPAuthResultResponse = TESTDATA_PATH + "/ActLDAPAuthResultResponse";
     public const string TESTDATA_PATH_ActADAuthResultResponse = TESTDATA_PATH + "/ActADAuthResultResponse";
+    public const string TESTDATA_PATH_ActAuthenticateResponse = TESTDATA_PATH + "/ActAuthenticateResponse";
     // Update Might be required for other API's and differnet machines (PATH)
     public static string ALL_HEADERS_WITH_DEFAULT = "HTTP_CACHE_CONTROL: no-cache, max-age=0\r\n" +
                        "HTTP_CONTENT_LENGTH: 823\r\n" +
@@ -25,18 +28,18 @@ public class Constants
                        "INSTANCE_META_PATH: /LM/W3SVC/1\r\n" +
                        "LOCAL_ADDR: 172.29.242.170\r\n" +
                        "PATH_INFO: /eOSAEAChecker/Mfpsink.asmx\r\n" +
-                       "PATH_TRANSLATED: D:\\SSDI\\Projects\\OSA\\open-systems\\test\\eOSAEAChecker\\eOSAEAChecker\\Mfpsink.asmx\r\n" + // Check This one
+                       "PATH_TRANSLATED: D:\\SSDI\\Projects\\OSA\\open-systems\\test\\eOSAEAChecker\\eOSAEAChecker\\Mfpsink.asmx\r\n" +
                        "REMOTE_ADDR: 192.168.81.65\r\n" +
                        "REMOTE_HOST: 192.168.81.65\r\n" +
                        "REMOTE_PORT: 34004\r\n" +
                        "REQUEST_METHOD: POST\r\n" +
-                       "SCRIPT_NAME: /eOSAEAChecker/Mfpsink.asmx\r\n" + // Check This one
+                       "SCRIPT_NAME: /eOSAEAChecker/Mfpsink.asmx\r\n" +
                        "SERVER_NAME: 172.29.242.170\r\n" +
                        "SERVER_PORT: 80\r\n" +
                        "SERVER_PORT_SECURE: 0\r\n" +
                        "SERVER_PROTOCOL: HTTP/1.1\r\n" +
                        "SERVER_SOFTWARE: Microsoft-IIS/10.0\r\n" +
-                       "URL: /eOSAEAChecker/Mfpsink.asmx"; // Check This one
+                       "URL: /eOSAEAChecker/Mfpsink.asmx";
 
     public static string RESPONSE_HEADER_HTTP_200_OK = "HTTP/1.1 200 OK\r\n" +
                                      "Content-Type: text/xml; charset=utf-8\r\n\r\n";

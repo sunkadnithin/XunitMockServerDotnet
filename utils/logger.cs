@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace Utility;
+namespace MockServer.Utils;
 public class Logger
 {
     private static string _logFilePath = "./logs/logs.log";
