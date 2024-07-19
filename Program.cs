@@ -64,10 +64,10 @@ class Program
 
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(xmlData);
-            if (!Helper.saveXml(xmlDoc))
-            {
-                Helper.Send500InternalServerErr(stream, "Not able to save the Request XML");
-            }
+            // if (!Helper.saveXml(xmlDoc))
+            // {
+            //     Helper.Send500InternalServerErr(stream, "Not able to save the Request XML");
+            // }
 
             // Extract the URL path from the request headers
             string[] parts = requestHeaders.Split(' ');
@@ -92,6 +92,13 @@ class Program
                     {
                         ActAuthResultClass actAuth = new();
                         await actAuth.ActAuthResult(stream, xmlDoc, url);
+                        break;
+                    }
+
+                case "ActHello":
+                    {
+                        ActHelloClass obj = new();
+                        await obj.ActHelloResponse(stream, xmlDoc, url);
                         break;
                     }
                 default:

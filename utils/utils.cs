@@ -131,6 +131,13 @@ class Helper
         Logger.LogResponse(Constants.RESPONSE_HEADER_HTTP_200_OK, xmlContent);
     }
 
+    public static async Task Send200_StringXml(NetworkStream stream, string xmlContent)
+    {
+        byte[] responseBytes = Encoding.UTF8.GetBytes(Constants.RESPONSE_HEADER_HTTP_200_OK + xmlContent);
+        await stream.WriteAsync(responseBytes, 0, responseBytes.Length);
+        Console.WriteLine("stream.Write ended");
+        Logger.LogResponse(Constants.RESPONSE_HEADER_HTTP_200_OK, xmlContent);
+    }
 
     public static async Task Send200_XmlNode(NetworkStream stream, string filePath)
     {
@@ -139,51 +146,51 @@ class Helper
         string xmlContent = File.ReadAllText(xmlFilePath);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(xmlContent);
-                    // Define namespace manager to handle namespaces in XPath
-            XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
-            nsmgr.AddNamespace("s", "http://schemas.xmlsoap.org/soap/envelope/");
-            nsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            nsmgr.AddNamespace("xsd", "http://www.w3.org/2001/XMLSchema");
-            nsmgr.AddNamespace("default", "urn:schemas-sc-jp:mfp:osa-2-1");
+        // Define namespace manager to handle namespaces in XPath
+        XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
+        nsmgr.AddNamespace("s", "http://schemas.xmlsoap.org/soap/envelope/");
+        nsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+        nsmgr.AddNamespace("xsd", "http://www.w3.org/2001/XMLSchema");
+        nsmgr.AddNamespace("default", "urn:schemas-sc-jp:mfp:osa-2-1");
 
-            // Select the desired nodes (in this case, all 'device-info' nodes)
-            XmlNodeList nodeList = xmlDoc.SelectNodes("//default:device-info", nsmgr);
+        // Select the desired nodes (in this case, all 'device-info' nodes)
+        XmlNodeList nodeList = xmlDoc.SelectNodes("//default:device-info", nsmgr);
 
-            // Convert XmlNodeList to XmlNode[]
-            XmlNode[] nodeArray = new XmlNode[nodeList.Count];
-            for (int i = 0; i < nodeList.Count; i++)
-            {
-                nodeArray[i] = nodeList[i];
-            }
+        // Convert XmlNodeList to XmlNode[]
+        XmlNode[] nodeArray = new XmlNode[nodeList.Count];
+        for (int i = 0; i < nodeList.Count; i++)
+        {
+            nodeArray[i] = nodeList[i];
+        }
 
-            // Convert the XmlNode[] to an XML string or another format as needed
-            string xmlString = ConvertXmlNodeArrayToString(nodeArray);
+        // Convert the XmlNode[] to an XML string or another format as needed
+        string xmlString = ConvertXmlNodeArrayToString(nodeArray);
 
-            // Return the XML string in the response
-                byte[] responseBytes = Encoding.UTF8.GetBytes(Constants.RESPONSE_HEADER_HTTP_200_OK + xmlString);
+        // Return the XML string in the response
+        byte[] responseBytes = Encoding.UTF8.GetBytes(Constants.RESPONSE_HEADER_HTTP_200_OK + xmlString);
         Logger.LogResponse(Constants.RESPONSE_HEADER_HTTP_200_OK, xmlString);
 
         await stream.WriteAsync(responseBytes, 0, responseBytes.Length);
         Console.WriteLine("stream.Write ended");
-        
+
     }
 
-private static string ConvertXmlNodeArrayToString(XmlNode[] nodes)
-{
-    XmlDocument doc = new XmlDocument();
-    XmlElement root = doc.CreateElement("root");
-
-    foreach (XmlNode node in nodes)
+    private static string ConvertXmlNodeArrayToString(XmlNode[] nodes)
     {
-        XmlNode importedNode = doc.ImportNode(node, true);
-        root.AppendChild(importedNode);
-        // Log each imported node for debugging
-        Console.WriteLine($"Imported node: {importedNode.OuterXml}");
-    }
+        XmlDocument doc = new XmlDocument();
+        XmlElement root = doc.CreateElement("root");
 
-    doc.AppendChild(root);
-    return doc.OuterXml;
-}
+        foreach (XmlNode node in nodes)
+        {
+            XmlNode importedNode = doc.ImportNode(node, true);
+            root.AppendChild(importedNode);
+            // Log each imported node for debugging
+            Console.WriteLine($"Imported node: {importedNode.OuterXml}");
+        }
+
+        doc.AppendChild(root);
+        return doc.OuterXml;
+    }
 
 }
 
