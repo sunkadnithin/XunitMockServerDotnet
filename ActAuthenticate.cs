@@ -28,178 +28,130 @@ public class ActAuthResultClass
             // Server Side setting : System.Web.Configuration.WebConfigurationManager.AppSettings["ACT_AUTHENTICATERES_OMIT_ACL_ELEMENT"]
             List<string> exceptionLoginName = new List<string> { "11", "12", "13", "14", "15", "100", "101", "102", "103", "104", "105", "106", "107", "108", "1000" };
 
-            Logger.Log($"ActADAuthResult Input\n authResult : {authResult}\tauthType : {authType}\tloginName : {loginName} \tpassWord : {passWord}");
+            Logger.Log($"ActAuthResult Input\n authResult : {authResult}\tauthType : {authType}\tloginName : {loginName} \tpassWord : {passWord}");
 
             switch (authType)
             {
 
                 case "walk_up":
 
-                    // if (authResult != null)
+                    retResult = commonOperations.checkPassWord(loginName, passWord);
+                    // switch (loginName)
                     // {
-                    //     // 1 = Credentials correct
-                    //     // 0 = Credentials incorrect
-                    //     // -1 = Wrong Server
-                    //     if (authResult != "1")
-                    //     {
-                    //         string errMsg = (authResult == "0") ? "LoginName or Password is incorrect." : "Cannot connect to the AD Server.";
-                    //         Console.Write("[MfpSink.ActADAuthResult] AD Authentication error : " + errMsg);
-                    //         Logger.Log("[MfpSink.ActADAuthResult] AD Authentication error : " + errMsg);
+                    //     case "1":
+                    //         retResult = (passWord == "1");
+                    //         break;
+                    //     case "2":
+                    //         retResult = (passWord == "2");
+                    //         break;
+                    //     case "3":
+                    //         retResult = (passWord == "3");
+                    //         break;
+                    //     case "4":
+                    //         retResult = (passWord == "4");
+                    //         break;
+                    //     case "5":
+                    //         retResult = (passWord == "5");
+                    //         break;
+                    //     case "10":
+                    //         retResult = (passWord == "10");
+                    //         break;
+
+                    //     case "11":
+                    //         retResult = (passWord == "11");
+                    //         break;
+
+                    //     case "12":
+                    //         retResult = (passWord == "12");
+                    //         break;
+
+
+                    //     case "13":
+                    //         retResult = (passWord == "13");
+                    //         break;
+
+                    //     case "14":
+                    //         retResult = (passWord == "14");
+                    //         break;
+                    //     case "100":
+                    //         retResult = (passWord == "100");
+                    //         break;
+                    //     case "101":
+                    //         retResult = (passWord == "101");
+                    //         break;
+                    //     case "102":
+                    //         retResult = (passWord == "102");
+                    //         break;
+                    //     case "103":
+                    //         retResult = (passWord == "103");
+                    //         break;
+
+                    //     case "104":
+                    //         retResult = (passWord == "104");
+                    //         break;
+                    //     case "105":
+                    //         retResult = (passWord == "105");
+                    //         break;
+
+                    //     case "106":
+                    //         retResult = (passWord == "106");
+                    //         break;
+                    //     case "107":
+                    //         retResult = (passWord == "107");
+                    //         break;
+                    //     case "108":
+                    //         retResult = (passWord == "108");
+                    //         break;
+
+                    //     case "1000":
+                    //         retResult = (passWord == "1000");
+                    //         break;
+
+                    //     default:
                     //         retResult = false;
-                    //     }
-                    //     if (exceptionLoginName.Contains(loginName))
-                    //     {
-                    //         await ActAuthResult_exceptionLoginNames(stream, loginName);
-                    //     }
-                    //     else if (retResult == false)
-                    //     {
-                    //         string xmlFilePath = test_data_path + "/ActAuthenticateResponse_false.xml";
-                    //         await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
-                    //     }
-                    //     else if (retResult == true)
-                    //     {
-                    //         try
-                    //         {
-                    //             string xmlFilePath = test_data_path + "/ActAuthenticateResponse_true.xml";
-                    //             await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
-                    //         }
-
-                    //         catch (Exception ex)
-                    //         {
-                    //             Helper.Send500InternalServerErr(stream, ex.Message);
-                    //         }
-                    //     }
-
-                    //     else
-                    //     {
-                    //         Helper.Send500InternalServerErr(stream, "Unkown Error");
-
-                    //     }
+                    //         break;
                     // }
-                    // else
-                    // {
-                    //     // get password from the request xml
-                    // Logger.Log($"ActADAuthResult Input\n authResult : {authResult}\tauthType : {authType}\tloginName : {loginName}\t passWord : {passWord}");
 
-                    // // ACL Group Types
-                    switch (loginName)
-                    {
-                        case "1":
-                            retResult = (passWord == "1");
-                            break;
-                        case "2":
-                            retResult = (passWord == "2");
-                            break;
-                        case "3":
-                            retResult = (passWord == "3");
-                            break;
-                        case "4":
-                            retResult = (passWord == "4");
-                            break;
-                        case "5":
-                            retResult = (passWord == "5");
-                            break;
-                        case "10":
-                            retResult = (passWord == "10");
-                            break;
-
-                        case "11":
-                            retResult = (passWord == "11");
-                            break;
-
-                        case "12":
-                            retResult = (passWord == "12");
-                            break;
-
-
-                        case "13":
-                            retResult = (passWord == "13");
-                            break;
-
-                        case "14":
-                            retResult = (passWord == "14");
-                            break;
-                        case "100":
-                            retResult = (passWord == "100");
-                            break;
-                        case "101":
-                            retResult = (passWord == "101");
-                            break;
-                        case "102":
-                            retResult = (passWord == "102");
-                            break;
-                        case "103":
-                            retResult = (passWord == "103");
-                            break;
-
-                        case "104":
-                            retResult = (passWord == "104");
-                            break;
-                        case "105":
-                            retResult = (passWord == "105");
-                            break;
-
-                        case "106":
-                            retResult = (passWord == "106");
-                            break;
-                        case "107":
-                            retResult = (passWord == "107");
-                            break;
-                        case "108":
-                            retResult = (passWord == "108");
-                            break;
-
-                        case "1000":
-                            retResult = (passWord == "1000");
-                            break;
-
-                        default:
-                            retResult = false;
-                            break;
-                    }
-
-                    // if (loginName != passWord)
-                    // {
-                    //     retResult = false;
-                    // }
                     if (retResult)
                     {
-                        if (defaultLoginName.Contains(loginName))
-                        {
-                            string xmlFilePath = test_data_path + "/ActAuthenticateResponse_true.xml";
-                            await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
+                        // if (defaultLoginName.Contains(loginName))
+                        // {
+                        //     string xmlFilePath = test_data_path + "/true.xml";
+                        //     await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
 
-                        }
-                        else
-                        {
-                            await ActAuthResult_exceptionLoginNames(stream, loginName);
-                        }
+                        // }
+                        // else
+                        // {
+                        //     await SendResponseBasesOnLoginName(stream, loginName);
+                        // }
+                        await SendResponseBasesOnLoginName(stream, loginName);
 
                     }
                     else
                     {
-                        //  await ActAuthResult_exceptionLoginNames(stream, loginName);
-                        await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_failed.xml");
+                        //  await SendResponseBasesOnLoginName(stream, loginName);
+                        await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/failed.xml");
                     }
                     // }
                     break;
                 // ----------------------- walk_up Ended---------------------------------------
 
                 case "card_hid":
-                    List<string> defaultCardValues = new List<string> { "MQ==", "MTAwMDA=", "OQ==" };
                     string cardValue = Helper.getXmlNodeValue(xmlDoc, "property[@sys-name='CardValue']");
-
-                    if (defaultCardValues.Contains(cardValue))
+                    string cardName = commonOperations.getCard(cardValue);
+                    if (!string.IsNullOrEmpty(cardName))
                     {
-                        string xmlFilePath = test_data_path + "/ActAuthenticateResponse_true.xml";
-                        await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
+                        // string xmlFilePath = test_data_path + $"/{cardName}.xml";
+                        // await Helper.Send200_ReadXmlFromFileAsync(stream, xmlFilePath);
+                        await SendResponseBasesOnLoginName(stream, cardName);
                     }
-
                     else
                     {
-                        Helper.Send500InternalServerErr(stream, $"cardValue - {cardValue} -- not found");
+                        Logger.Log($"cardValue : {cardValue} -- not found");
+                        await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/failed.xml");
                     }
                     break;
+
                 default:
                     Helper.Send500InternalServerErr(stream, "authType Not Found");
                     return;
@@ -216,62 +168,93 @@ public class ActAuthResultClass
     }
 
 
-    public async Task ActAuthResult_exceptionLoginNames(NetworkStream stream, string loginName)
+    public async Task SendResponseBasesOnLoginName(NetworkStream stream, string name)
     {
-        switch (loginName)
+        switch (name)
         {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/true.xml");
+                break;
+
+                // await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/{name}.xml");
+                // break;
+
+                // await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/{name}.xml");
+                // break;
+
+                // await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/{name}.xml");
+                // break;
+
+                // await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/{name}.xml");
+                // break;
+
             case "11":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActAuthenticateResponse_{loginName}_true.xml");
-                break;
-
             case "12":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActAuthenticateResponse_{loginName}_true.xml");
-                break;
-
             case "13":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActAuthenticateResponse_{loginName}_true.xml");
-                break;
-
             case "14":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/ActAuthenticateResponse_{loginName}_true.xml");
+            case "card01":
+            case "card02":
+            case "card03":
+            case "card04":
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + $"/{name}.xml");
                 break;
 
             case "100":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_100_ACL_TYPE_CUSTOM.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/100_ACL_TYPE_CUSTOM.xml");
                 break;
             case "101":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_101_ACL_GROUP.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/101_ACL_GROUP.xml");
                 break;
             case "102":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_103_LCL_CUSTOM.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/103_LCL_CUSTOM.xml");
                 break;
             case "103":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_103_LCL_CUSTOM.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/103_LCL_CUSTOM.xml");
                 break;
 
             case "104":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_104_LCL_GROUP.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/104_LCL_GROUP.xml");
                 break;
 
             case "105":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_105_SCREEN_APP_TYPE.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/105_SCREEN_APP_TYPE.xml");
                 break;
 
             case "106":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_106_SCREEN_TYPE.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/106_SCREEN_TYPE.xml");
                 break;
 
             case "107":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_107_SCREEN_TYPE_NULL_APP_ADDRESS.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/107_SCREEN_TYPE_NULL_APP_ADDRESS.xml");
                 break;
 
             case "108":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_108_SCREEN_TYPE_MAINMODE.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/108_SCREEN_TYPE_MAINMODE.xml");
                 break;
 
             case "1000":
-                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/ActAuthenticateResponse_1000_USERINFO_ACL_LCL_NULL.xml");
+                await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/1000_USERINFO_ACL_LCL_NULL.xml");
                 break;
+
+            // case "MQ==":
+            //     await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/card01.xml");
+            //     break;
+
+            // case "OQ==":
+            //     await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/card02.xml");
+            //     break;
+
+            // case "MTAwMDA=":
+            //     await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/card03.xml");
+            //     break;
+
+            // case "MzIwMDA=":
+            //     await Helper.Send200_ReadXmlFromFileAsync(stream, test_data_path + "/card04.xml");
+            //     break;
         }
     }
 }

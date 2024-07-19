@@ -47,4 +47,6 @@ public class Constants
     public static string RESPONSE_HEADER_HTTP_500_INTERNAL_SERVER_ERR = "HTTP/1.1 500 Internal Server Error\r\n" +
                         "Content-Type: text/xml; charset=utf-8\r\n\r\n";                
 
+    public static List<string> defaultCardValues = new List<string> { "MQ==", "MTAwMDA=", "OQ==" };
+
 }
